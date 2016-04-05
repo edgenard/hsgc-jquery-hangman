@@ -1,0 +1,50 @@
+
+
+/*NOTE: DO NOT TOUCH ANYTHING BELOW HERE;*/
+* {
+  box-sizing: border-box;
+
+}
+body > * {
+  border: 1px solid red;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.hangman-image {
+  background-image: url("../images/HangmanSprite.png");
+  height: 410px;
+  width: 170px;
+  background-position: 10px -100px;
+}
+
+.hang-1 {
+  background-position: -170px -100px;
+}
+
+#letters ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 800px;
+}
+
+#letters li {
+  margin: 5px 10px;
+}
+
+/*NOTE: DO NOT TOUCH ANYTHING ABOVE HERE;*/
