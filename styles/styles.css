@@ -36,6 +36,27 @@ main {
   background-position: -170px -100px;
 }
 
+.hang-2 {
+  background-position: -340px -100px;
+}
+
+.hang-3 {
+  background-position: -510px -100px;
+}
+
+.hang-4 {
+  background-position: -680px -100px;
+}
+
+.hang-5 {
+  background-position: -850px -100px;
+}
+
+.hang-6 {
+  background-position: -1020px -100px;
+}
+
+
 #letters ul {
   list-style: none;
   display: flex;
