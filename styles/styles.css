@@ -16,6 +16,7 @@ body {
   align-items: center;
   font-family: "Gill Sans", sans-serif;
   font-size: 16px;
+  background-color: ivory;
 }
 
 main {
@@ -25,47 +26,74 @@ main {
   flex-flow: column;
 }
 
+main > * {
+  border: 1px solid blue
+}
+
 .hangman-image {
-  background-image: url("../images/HangmanSprite.png");
-  height: 410px;
-  width: 170px;
-  background-position: 10px -100px;
+  min-height: 361px;
 }
 
-.hang-1 {
-  background-position: -170px -100px;
+.blank-spaces{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
 }
 
-.hang-2 {
-  background-position: -340px -100px;
-}
-
-.hang-3 {
-  background-position: -510px -100px;
-}
-
-.hang-4 {
-  background-position: -680px -100px;
-}
-
-.hang-5 {
-  background-position: -850px -100px;
-}
-
-.hang-6 {
-  background-position: -1020px -100px;
+.blank-spaces > * {
+  min-height: 45px;
+  min-width: 45px;
+  border-bottom: 3px solid #ab3c3c;
+  margin: 5px 10px;
+  font-size: 24px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 
-#letters ul {
+.letters ul {
   list-style: none;
   display: flex;
   flex-flow: row wrap;
   max-width: 800px;
 }
 
-#letters li {
+.letters li {
   margin: 5px 10px;
+}
+
+.letters li button {
+  font-size: 18px;
+  background-color: #111;
+  color: ivory;
+  border: none;
+	cursor: pointer;
+	padding: 10px 30px;
+	display: inline-block;
+	margin: 10px 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+  box-shadow: 0 6px #ab3c3c;
+  border-radius: 5px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.letters li button:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+.letters li button:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+  background-color: #ab3c3c;
 }
 
 /*NOTE: DO NOT TOUCH ANYTHING ABOVE HERE;*/
