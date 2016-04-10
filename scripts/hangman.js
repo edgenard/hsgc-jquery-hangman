@@ -35,16 +35,18 @@ $().ready(function () {
   hangman.names = $.extend([], NAMES);
   var pickWord = function() {
     var randIndex = Math.floor(Math.random() *(hangman.names.length))
-    secretWord = hangman.names[randIndex].split("")
+    secretWord = hangman.names[randIndex].toLowerCase().split("")
     hangman.names.splice(randIndex,1)
     return secretWord;
   }
-  hangman.setupWord = function () {
+  hangman.setupGame = function () {
     $(".blank-spaces").empty();
     var word = pickWord();
     word.forEach(function (letter, index) {
       $(".blank-spaces").append("<span id=" + index +"></span?")
     })
+
+    $(".letters button").show()
   }
 
   var findIndexes = function(value, arr) {
@@ -58,15 +60,23 @@ $().ready(function () {
 
   }
 
-  $(".letters").click(function (event) {
-    var letter = event.target.id;
-    if($.inArray(letter,secretWord) !== -1){
-      find all indexes in secretWord that has letter.
-      if id of space matches thance the value to letter.
+
+
+  $(".letters button").click(function (event) {
+    var letter = $(this)
+    var letterString = letter.text().toLowerCase()
+    if($.inArray(letterString,secretWord) !== -1){
+      var locations = findIndexes(letterString, secretWord)
+      $(".blank-spaces").children().each(function (index) {
+        if($.inArray(index, locations) !== -1){
+          $(this).text(letterString);
+        }
+      })
 
     }else{
-      $(event.target).fadeOut(700)
+
     }
+    letter.hide(700)
   })
 
 
