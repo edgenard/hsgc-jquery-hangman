@@ -70,3 +70,43 @@ var fillInWelcomeWord = function () {
     $(".blank-spaces").append("<span>" + letter + "</span?")
   })
 }
+
+var letterInWord = function (letter) {
+  if($.inArray(letter, secretWord)!== -1){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+var fillInBlanks = function (letter) {
+  var locations = findIndexes(letter, secretWord)
+  $(".blank-spaces").children().each(function (index) {
+    if($.inArray(index, locations) !== -1){
+      $(this).text(letter);
+    }
+  })
+}
+
+var winner = function () {
+  return !$(".blank-spaces span").is(":empty")
+}
+
+var revealWord = function () {
+  secretWord.forEach(function (letter, index) {
+    $(".blank-spaces span").each(function () {
+      if ($(this).attr("id") === "" + index) {
+        $(this).text(letter)
+      }
+    })
+  })
+}
+
+var showNextImage = function () {
+  $(".hangman-image figure img").replaceWith("<img src=" + IMAGES[imageIndex] +" alt='hangman image'>")
+  imageIndex += 1;
+}
+
+var gameOver = function () {
+  return imageIndex >= 6;
+}
