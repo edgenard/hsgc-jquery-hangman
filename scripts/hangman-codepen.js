@@ -91,14 +91,9 @@ $().ready(function () {
 
 var letterGuess = function (event) {
     var letter = $(this).text().toLowerCase();
-    if($.inArray(letter,secretWord) !== -1){ // If the person picked the right letter.
-      var locations = findIndexes(letter, secretWord)
-      $(".blank-spaces").children().each(function (index) {
-        if($.inArray(index, locations) !== -1){
-          $(this).text(letter);
-        }
-      })
 
+    if(letterInWord(letter)){ // If the person picked the right letter
+      fillInBlanks(letter) //fill In the blank spaces with the letter
     if(winner()){//Check if they've won
       $(".letters button").off("click")
       $(".number-of-names p").text("You Won! Click Play a Word to play again")
@@ -115,8 +110,25 @@ var letterGuess = function (event) {
       }
 
     }
-    $(this).hide(700)
+    $(this).hide(500)
 
+  }
+
+  var letterInWord = function (letter) {
+    if($.inArray(letter, secretWord)!== -1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  var fillInBlanks = function (letter) {
+    var locations = findIndexes(letter, secretWord)
+    $(".blank-spaces").children().each(function (index) {
+      if($.inArray(index, locations) !== -1){
+        $(this).text(letter);
+      }
+    })
   }
 
   var winner = function () {
