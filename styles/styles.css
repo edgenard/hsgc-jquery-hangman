@@ -79,6 +79,11 @@ main {
   background-color: #ab3c3c;
 }
 
+.game-messages {
+  font-size: 20px;
+  color: #ab3c3c;
+}
+
 .blank-spaces{
   display: flex;
   flex-flow: row nowrap;
