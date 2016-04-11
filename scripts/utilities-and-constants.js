@@ -49,7 +49,24 @@ var pickWord = function() {
 
 
 var possibleWords = $.extend([], NAMES)
+var welcomeWord = "ClickPlayaword";
 
 var resetImages = function () {
   imageIndex = 0;
+}
+
+var resetPossibleWords = function () {
+  possibleWords = $.extend([], NAMES)
+}
+
+var makeBlankSpaces = function (word) {
+  word.forEach(function (letter, index) {
+    $(".blank-spaces").append("<span id=" + index +"></span?")
+  })
+}
+
+var fillInWelcomeWord = function () {
+  welcomeWord.split("").forEach(function (letter) {
+    $(".blank-spaces").append("<span>" + letter + "</span?")
+  })
 }

@@ -1,35 +1,28 @@
 $().ready(function () {
 
 
-
-
-
-  var welcomeWord = "ClickPlayaword";
-
   var setupGame = function () {
-    resetImages()
+    resetImages()//reset the hangman images.
     $(".blank-spaces").empty(); //This empties out all the elements in the .blank-spaces section
     var word = pickWord();// Picks a word from secret list of possible words
-    word.forEach(function (letter, index) {
-      $(".blank-spaces").append("<span id=" + index +"></span?")
-    })// This creates the blank spaces for the world.
+    makeBlankSpaces(word); // This creates the blank spaces for the word.
 
     $(".letters button").show()
     $(".letters button").click(letterGuess)
     $(".game-messages p").text("There are " + possibleWords.length + " more words to play.")
-    $(".hangman-image img").replaceWith("<img src='http://i.imgur.com/O5KepLs.png' alt='hangman image'>")
+    $(".hangman-image img").replaceWith("<img src='http://i.imgur.com/O5KepLs.png' alt='hangman image'>")//This replaces the img that is currently showing with another one.
   }
 
   var resetGame = function () {
     resetImages()
-    possibleWords = $.extend([], NAMES);
-    $(".blank-spaces").empty()
-    welcomeWord.split("").forEach(function (letter) {
-      $(".blank-spaces").append("<span>" + letter + "</span?")
-    })
+    resetPossibleWords()
+    $(".blank-spaces").empty()//Empties out the blank spaces.
+
+    fillInWelcomeWord()//Fill in Welcome Word
+
     $(".game-messages p").text("Welcome to HSGC JQuery Hangman. Click \"Play a Word\" to start playing!")
 
-    $(".hangman-image img").replaceWith("<img src='http://i.imgur.com/O5KepLs.png' alt='hangman image'>")
+    $(".hangman-image img").replaceWith("<img src='http://i.imgur.com/O5KepLs.png' alt='hangman image'>")//This replaces the img that is currently showing with another one.
 
   }
 
