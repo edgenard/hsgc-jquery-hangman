@@ -15,13 +15,13 @@ var NAMES = [
 ]
 
 var IMAGES = [
-  "http://i.imgur.com/WvCmM8b.png",
-  "http://i.imgur.com/r9Zy7yN.png",
-  "http://i.imgur.com/ZjkBARC.png",
-  "http://i.imgur.com/gFTW0Ta.png",
-  "http://i.imgur.com/j5o8met.png",
-  "http://i.imgur.com/ma29Fvx.png",
-  "http://i.imgur.com/s9QC4RI.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-1.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-2.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-3.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-4.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-5.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-6.png",
+  "https://cdn.rawgit.com/edgenard/hsgc-jquery-hangman/master/images/hangman-7.png",
 ]
 
 
