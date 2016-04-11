@@ -5,9 +5,6 @@
   box-sizing: border-box;
 
 }
-body > * {
-  border: 1px solid red;
-}
 
 body {
   display: flex;
@@ -26,9 +23,6 @@ main {
   flex-flow: row wrap;
 }
 
-main > * {
-  border: 1px solid blue
-}
 
 .hangman-image {
   min-height: 360px;
