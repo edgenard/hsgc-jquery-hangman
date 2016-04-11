@@ -62,6 +62,7 @@ $().ready(function () {
   var welcomeWord = "ClickPlayaword";
 
   hangman.setupGame = function () {
+    imageIndex = 0;
     $(".blank-spaces").empty();
     var word = pickWord();
     word.forEach(function (letter, index) {
@@ -75,6 +76,7 @@ $().ready(function () {
   }
 
   hangman.resetGame = function () {
+    imageIndex = 0;
     hangman.names = $.extend([], NAMES);
     $(".blank-spaces").empty()
     welcomeWord.split("").forEach(function (letter) {
@@ -88,28 +90,37 @@ $().ready(function () {
 
 
 var letterGuess = function (event) {
-    var letter = $(this).text().toLowerCase();
-    if($.inArray(letter,secretWord) !== -1){ // If the person picked the right letter.
-      var locations = findIndexes(letter, secretWord)
-      $(".blank-spaces").children().each(function (index) {
-        if($.inArray(index, locations) !== -1){
-          $(this).text(letter);
-        }
-      })
 
-    }else{
-      if(imageIndex < 6){
-        $(".hangman-image figure img").replaceWith("<img src=" + IMAGES[imageIndex] +" alt='hangman image'>")
-        imageIndex += 1;
-      } else {
-        $(".hangman-image figure img").replaceWith("<img src=" + IMAGES[imageIndex] +" alt='hangman image'>")
-        $(".number-of-names p").text("Game Over. Click Play Word to play again")
-        $(".letters button").off("click")
-        revealWord()
+  var letter = $(this).text().toLowerCase();
+  if($.inArray(letter,secretWord) !== -1){ // If the person picked the right letter.
+    var locations = findIndexes(letter, secretWord)
+    $(".blank-spaces").children().each(function (index) {
+      if($.inArray(index, locations) !== -1){
+        $(this).text(letter);
       }
+    })
+    if(winner()){//Check if they've won
+      $(".letters button").off("click")
+      $(".number-of-names p").text("You Won! Click Play a Word to play again")
+    }
 
+  }else{
+    if(imageIndex < 6){//Check if they have more chances
+      $(".hangman-image figure img").replaceWith("<img src=" + IMAGES[imageIndex] +" alt='hangman image'>")
+      imageIndex += 1;
+    } else {
+      $(".hangman-image figure img").replaceWith("<img src=" + IMAGES[imageIndex] +" alt='hangman image'>")
+      $(".number-of-names p").text("Game Over. Click Play Word to play again")
+      $(".letters button").off("click")
+      revealWord()
+      }
     }
     $(this).hide(700)
+
+  }
+
+  var winner = function () {
+    return !$(".blank-spaces span").is(":empty")
   }
 
   var revealWord = function () {
